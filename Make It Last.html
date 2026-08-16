@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Make It Last Signature &amp; Notary — Mobile Notary, Loan Signing &amp; Apostille</title>
+<meta name="description" content="Make It Last Signature &amp; Notary — for the signatures that matter most. Mobile notary, certified loan signing, and apostille coordination. We come to you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   EDIT ME FIRST → see the BIZ object in the <script> at the
+   bottom of this file. Name, phone, email, city, state, county,
+   service area and prices all live there. Change once, updates
+   everywhere on the page.
+   ============================================================ */
+
+:root{
+  --ink:#14201C;
+  --paper:#E7EDE6;
+  --card:#FCFDFB;
+  --seal:#6E1B26;
+  --brass:#A8843C;
+  --rule:#C6D0C4;
+  --muted:#55655C;
+  --shadow:0 1px 2px rgba(20,32,28,.06), 0 8px 24px rgba(20,32,28,.06);
+  --display:"Bodoni Moda", Georgia, serif;
+  --body:"Public Sans", system-ui, -apple-system, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, monospace;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+a{color:inherit}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.narrow{max-width:760px;margin:0 auto;padding:0 24px}
+
+/* ---------- type ---------- */
+h1,h2,h3{font-family:var(--display);font-weight:500;letter-spacing:-.01em;margin:0}
+h1{font-size:clamp(2.5rem,6.5vw,4.4rem);line-height:1.02}
+h2{font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.08}
+h3{font-size:1.35rem;line-height:1.25}
+p{margin:0 0 1rem}
+.eyebrow{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--seal);margin:0 0 .9rem;
+}
+.lede{font-size:1.15rem;color:var(--muted);max-width:56ch}
+.fine{font-size:.84rem;color:var(--muted);line-height:1.55}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--body);font-weight:600;font-size:.95rem;
+  padding:.85rem 1.6rem;border-radius:2px;border:1px solid var(--ink);
+  background:var(--ink);color:var(--paper);text-decoration:none;cursor:pointer;
+  transition:background .18s ease, color .18s ease, transform .18s ease;
+}
+.btn:hover{background:var(--seal);border-color:var(--seal);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+:focus-visible{outline:2.5px solid var(--seal);outline-offset:3px}
+
+/* ---------- header ---------- */
+header.site{
+  position:sticky;top:0;z-index:60;background:rgba(231,237,230,.94);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);
+}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:14px 24px;max-width:1080px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.brand .mark{width:34px;height:34px;flex:none}
+.brand .name{font-family:var(--display);font-size:1.02rem;line-height:1.15;letter-spacing:.01em;max-width:15ch}
+.brand .name small{display:block;font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:.15rem}
+nav.main{display:flex;align-items:center;gap:1.6rem}
+nav.main a{
+  font-size:.9rem;font-weight:500;text-decoration:none;color:var(--muted);
+  padding:2px 0;border-bottom:1.5px solid transparent;
+}
+nav.main a:hover,nav.main a.on{color:var(--ink);border-bottom-color:var(--seal)}
+nav.main .btn{color:var(--paper);border-bottom:none}
+nav.main .btn:hover{border-bottom:none}
+.menu-btn{display:none;background:none;border:1px solid var(--rule);border-radius:2px;padding:.5rem .7rem;font-size:.85rem;font-family:var(--body);cursor:pointer;color:var(--ink)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--rule)}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background:
+    repeating-linear-gradient(58deg, transparent 0 7px, rgba(20,32,28,.045) 7px 8px),
+    repeating-linear-gradient(-58deg, transparent 0 7px, rgba(20,32,28,.035) 7px 8px);
+  -webkit-mask-image:radial-gradient(120% 90% at 78% 30%, #000 0%, transparent 68%);
+  mask-image:radial-gradient(120% 90% at 78% 30%, #000 0%, transparent 68%);
+}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center;padding:5.5rem 0 5rem}
+.hero h1 em{font-style:italic;color:var(--seal)}
+.hero .lede{margin-top:1.4rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.hero-note{margin-top:1.6rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;color:var(--muted)}
+.seal-stage{display:flex;justify-content:center}
+.seal-stage svg{width:min(320px,80%);height:auto;filter:drop-shadow(0 10px 22px rgba(20,32,28,.14))}
+@keyframes settle{from{opacity:0;transform:scale(1.35) rotate(-14deg)}to{opacity:1;transform:scale(1) rotate(-6deg)}}
+.seal-stage svg{animation:settle .9s cubic-bezier(.2,.8,.25,1) both;transform:rotate(-6deg)}
+
+/* ---------- sections ---------- */
+section.block{padding:5rem 0;border-bottom:1px solid var(--rule)}
+.sec-head{max-width:60ch;margin-bottom:2.6rem}
+
+/* ---------- service tabs ---------- */
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--rule);overflow-x:auto;scrollbar-width:none;margin-bottom:2.4rem}
+.tabs::-webkit-scrollbar{display:none}
+.tab{
+  flex:none;background:none;border:none;border-bottom:2.5px solid transparent;
+  font-family:var(--body);font-size:.98rem;font-weight:600;color:var(--muted);
+  padding:.9rem 1.4rem .8rem;cursor:pointer;white-space:nowrap;
+  transition:color .15s ease,border-color .15s ease;
+}
+.tab:first-child{padding-left:0}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--seal)}
+.tab .num{font-family:var(--mono);font-size:.72rem;color:var(--brass);margin-right:.5rem}
+
+.panel[hidden]{display:none}
+.panel{display:grid;grid-template-columns:1.25fr .75fr;gap:3rem;align-items:start;animation:fade .35s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.panel h3{margin-bottom:.6rem}
+.panel .sub{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);margin-bottom:1.2rem}
+.panel ul{margin:.4rem 0 1.4rem;padding-left:1.1rem}
+.panel li{margin-bottom:.45rem}
+.panel h4{font-family:var(--body);font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:1.8rem 0 .6rem;font-weight:700}
+
+.rate-card{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:1.6rem;box-shadow:var(--shadow);position:sticky;top:92px}
+.rate-card h4{font-family:var(--body);font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem;font-weight:700}
+.rate{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px dotted var(--rule);font-size:.92rem}
+.rate:last-of-type{border-bottom:none}
+.rate span:last-child{font-family:var(--mono);font-weight:500;white-space:nowrap}
+.rate-card .btn{width:100%;justify-content:center;margin-top:1.2rem}
+.rate-card .fine{margin-top:.9rem}
+
+/* ---------- process ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4rem;counter-reset:s}
+.step{border-top:2px solid var(--ink);padding-top:1.1rem}
+.step .n{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;color:var(--seal);display:block;margin-bottom:.5rem}
+.step h3{font-size:1.15rem;margin-bottom:.4rem}
+.step p{font-size:.94rem;color:var(--muted);margin:0}
+
+/* ---------- credentials ---------- */
+.creds{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.cred{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:1.3rem}
+.cred strong{display:block;font-family:var(--display);font-size:1.1rem;font-weight:500;margin-bottom:.3rem}
+.cred p{font-size:.88rem;color:var(--muted);margin:0;line-height:1.5}
+
+/* ---------- booking ---------- */
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+form.book{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:2rem;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-size:.78rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.field input,.field select,.field textarea{
+  width:100%;padding:.7rem .8rem;border:1px solid var(--rule);border-radius:2px;
+  background:#fff;font-family:var(--body);font-size:.98rem;color:var(--ink);
+}
+.field textarea{min-height:92px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--seal);outline:none;box-shadow:0 0 0 3px rgba(110,27,38,.1)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+form.book .btn{width:100%;justify-content:center;margin-top:.6rem}
+.err{color:var(--seal);font-size:.82rem;margin-top:.35rem;display:none}
+.err.show{display:block}
+
+.stamped{position:absolute;inset:0;background:var(--card);display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem}
+.stamped.show{display:flex}
+.stamped svg{width:150px;height:150px;animation:press .7s cubic-bezier(.16,1.1,.3,1) both}
+@keyframes press{0%{opacity:0;transform:scale(2.1) rotate(-20deg)}60%{opacity:1;transform:scale(.95) rotate(-6deg)}100%{opacity:1;transform:scale(1) rotate(-8deg)}}
+.stamped h3{margin:1.2rem 0 .5rem}
+.stamped p{color:var(--muted);font-size:.95rem;max-width:38ch}
+
+.contact-list{list-style:none;padding:0;margin:1.6rem 0 0}
+.contact-list li{padding:.9rem 0;border-bottom:1px solid var(--rule)}
+.contact-list .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.2rem}
+.contact-list .v{font-size:1.02rem}
+.contact-list a{text-decoration:none;border-bottom:1px solid var(--brass)}
+
+/* ---------- faq ---------- */
+.faq-group{margin-bottom:2.8rem}
+.faq-group > h3{font-size:1.1rem;letter-spacing:.02em;padding-bottom:.6rem;border-bottom:2px solid var(--ink);margin-bottom:.4rem}
+details.qa{border-bottom:1px solid var(--rule)}
+details.qa summary{
+  cursor:pointer;list-style:none;padding:1.05rem 2.2rem 1.05rem 0;position:relative;
+  font-weight:600;font-size:1rem;
+}
+details.qa summary::-webkit-details-marker{display:none}
+details.qa summary::after{
+  content:"+";position:absolute;right:.2rem;top:.95rem;font-family:var(--mono);
+  font-size:1.2rem;color:var(--seal);transition:transform .2s ease;
+}
+details.qa[open] summary::after{content:"–"}
+details.qa .a{padding:0 2.2rem 1.2rem 0;color:var(--muted);font-size:.96rem}
+details.qa .a p:last-child{margin-bottom:0}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:3rem;align-items:start}
+.portrait{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:1rem;box-shadow:var(--shadow)}
+.portrait .ph{aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#DFE6DD 0 12px,#E7EDE6 12px 24px);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;padding:1rem;border-radius:2px}
+.pullquote{font-family:var(--display);font-size:1.5rem;line-height:1.35;font-style:italic;color:var(--seal);border-left:2px solid var(--brass);padding-left:1.4rem;margin:2rem 0}
+
+/* ---------- footer ---------- */
+footer.site{padding:3.5rem 0 2.5rem;background:var(--ink);color:#C9D4CC}
+footer.site a{color:#C9D4CC}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+footer.site h4{font-family:var(--body);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:#8FA396;margin:0 0 .9rem;font-weight:700}
+footer.site ul{list-style:none;padding:0;margin:0}
+footer.site li{margin-bottom:.5rem;font-size:.92rem}
+.foot-brand{font-family:var(--display);font-size:1.6rem;color:var(--paper);margin-bottom:.6rem}
+.disclaimer{border-top:1px solid #2C3B34;padding-top:1.6rem;font-size:.79rem;line-height:1.6;color:#8FA396}
+.disclaimer strong{color:#C9D4CC}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .hero-grid,.panel,.book-grid,.about-grid{grid-template-columns:1fr;gap:2.2rem}
+  .seal-stage{order:-1}
+  .seal-stage svg{width:190px}
+  .steps{grid-template-columns:1fr;gap:1.6rem}
+  .creds{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr;gap:1.8rem}
+  .rate-card{position:static}
+  nav.main{
+    display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+    align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--rule);padding:.5rem 24px 1.2rem;
+  }
+  nav.main.open{display:flex}
+  nav.main a{padding:.8rem 0;border-bottom:1px solid var(--rule)}
+  nav.main .btn{margin-top:.8rem;justify-content:center}
+  .menu-btn{display:block}
+  .bar{position:relative}
+  section.block{padding:3.5rem 0}
+  .hero-grid{padding:3rem 0}
+}
+@media (max-width:560px){
+  .row2{grid-template-columns:1fr}
+  .creds{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site">
+  <div class="bar">
+    <a class="brand" href="#top" data-nav="home">
+      <span class="mark" id="brandMark"></span>
+      <span class="name">Make It Last<small>Signature &amp; Notary</small></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false">Menu</button>
+    <nav class="main" id="nav">
+      <a href="#services" data-nav="home">Services</a>
+      <a href="#process" data-nav="home">How it works</a>
+      <a href="#/about">About</a>
+      <a href="#/faq">FAQ</a>
+      <a href="#book" class="btn" data-nav="home">Book an appointment</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ PAGE: HOME ============ -->
+<div class="page" id="page-home">
+
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Mobile notary · Loan signing · Apostille</p>
+        <h1>For the signatures that matter <em>most</em>.</h1>
+        <p class="lede">Some documents follow you for life — a power of attorney, a closing package, a birth certificate headed overseas. <span data-biz="name">Make It Last Signature &amp; Notary</span> brings a commissioned, background-screened notary to your home, hospital room, or office across <span data-biz="area">[Your service area]</span>, and gets it right the first time.</p>
+        <div class="hero-actions">
+          <a href="#book" class="btn">Book an appointment</a>
+          <a href="#services" class="btn ghost">See what we handle</a>
+        </div>
+        <p class="hero-note">Same-day and after-hours available · Evenings &amp; weekends by request</p>
+      </div>
+      <div class="seal-stage" id="heroSeal"></div>
+    </div>
+  </div>
+
+  <!-- ---- SERVICES (tabbed) ---- -->
+  <section class="block" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Services</p>
+        <h2>Three services, one notary who knows the difference.</h2>
+        <p class="lede">Pick the tab that matches your document. Not sure? Start a general notary appointment and we'll sort it out before you pay anything.</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Services">
+        <button class="tab" role="tab" id="tab-mobile"    aria-controls="p-mobile"    aria-selected="true"><span class="num">01</span>Mobile Notary</button>
+        <button class="tab" role="tab" id="tab-loan"      aria-controls="p-loan"      aria-selected="false"><span class="num">02</span>Loan Signing</button>
+        <button class="tab" role="tab" id="tab-apostille" aria-controls="p-apostille" aria-selected="false"><span class="num">03</span>Apostille</button>
+      </div>
+
+      <!-- MOBILE NOTARY -->
+      <div class="panel" role="tabpanel" id="p-mobile" aria-labelledby="tab-mobile" tabindex="0">
+        <div>
+          <h3>Mobile Notary</h3>
+          <p class="sub">We travel to you</p>
+          <p>A notary public verifies who you are, watches you sign, and applies an official seal — which is what makes a document acceptable to banks, courts, schools, and government agencies. Mobile means you don't hunt for a bank branch that's open. We meet you where you already are.</p>
+
+          <h4>Common documents</h4>
+          <ul>
+            <li>Powers of attorney and healthcare directives</li>
+            <li>Wills, trusts, and estate paperwork prepared by your attorney</li>
+            <li>Affidavits, sworn statements, and consent-to-travel letters for minors</li>
+            <li>Vehicle titles, bills of sale, and lien releases</li>
+            <li>Deeds, quitclaims, and property transfers</li>
+            <li>School, employment, and immigration forms</li>
+          </ul>
+
+          <h4>Where we meet</h4>
+          <ul>
+            <li>Your home or a family member's home</li>
+            <li>Hospitals, rehab centers, hospice, and assisted living</li>
+            <li>Offices, coffee shops, and coworking spaces</li>
+            <li>Correctional facilities and county jails (advance approval required)</li>
+          </ul>
+
+          <h4>What to have ready</h4>
+          <ul>
+            <li>Unsigned documents — please don't sign ahead of time</li>
+            <li>Valid, unexpired government photo ID for every signer</li>
+            <li>Any witnesses your document requires (ask us — we can help arrange)</li>
+          </ul>
+        </div>
+        <aside class="rate-card">
+          <h4>Typical investment</h4>
+          <div class="rate"><span>Notarial act, per signature</span><span data-biz="feeAct">$XX</span></div>
+          <div class="rate"><span>Travel within <span data-biz="county">[County]</span></span><span data-biz="feeTravel">$XX</span></div>
+          <div class="rate"><span>After-hours / same-day</span><span data-biz="feeRush">$XX</span></div>
+          <div class="rate"><span>Additional signer</span><span data-biz="feeSigner">$XX</span></div>
+          <a href="#book" class="btn" data-service="Mobile Notary">Book mobile notary</a>
+          <p class="fine">Per-signature notarial fees are capped by <span data-biz="state">[State]</span> statute. Travel and convenience fees are separate and are always quoted to you in writing before the appointment.</p>
+        </aside>
+      </div>
+
+      <!-- LOAN SIGNING -->
+      <div class="panel" role="tabpanel" id="p-loan" aria-labelledby="tab-loan" tabindex="0" hidden>
+        <div>
+          <h3>Loan Signing</h3>
+          <p class="sub">For title, escrow, lenders &amp; borrowers</p>
+          <p>A loan signing agent is a notary trained specifically on mortgage packages. A refinance or purchase package can run 100 to 200 pages, and a single missed initial sends the whole file back. We walk the borrower through every page in order, flag anything that needs the lender, and get the package back on time.</p>
+
+          <h4>Signings we handle</h4>
+          <ul>
+            <li>Purchase and seller packages</li>
+            <li>Refinances and cash-out refinances</li>
+            <li>HELOCs and home equity loans</li>
+            <li>Reverse mortgages</li>
+            <li>Loan modifications and construction draws</li>
+          </ul>
+
+          <h4>How it runs</h4>
+          <ul>
+            <li>Documents received, printed, and prepped — legal and letter trays, two copies</li>
+            <li>Signing at the borrower's chosen time and place</li>
+            <li>Every signature, initial, and date checked page by page before we leave</li>
+            <li>Scan-backs same day if required; drop to the shipper with tracking sent to you</li>
+          </ul>
+
+          <h4>For title and escrow partners</h4>
+          <p>We accept assignments directly and by platform, carry E&amp;O coverage, and complete annual background screening. Ask about volume pricing and standing coverage for your closing calendar.</p>
+        </div>
+        <aside class="rate-card">
+          <h4>Typical investment</h4>
+          <div class="rate"><span>Refinance package</span><span data-biz="feeRefi">$XXX</span></div>
+          <div class="rate"><span>Purchase / seller package</span><span data-biz="feePurchase">$XXX</span></div>
+          <div class="rate"><span>Printing &amp; scan-backs</span><span>Included</span></div>
+          <div class="rate"><span>Trip fee if signing cancels</span><span data-biz="feeNoSign">$XX</span></div>
+          <a href="#book" class="btn" data-service="Loan Signing">Book a signing</a>
+          <p class="fine">Flat rates include printing both copies, travel, and shipping drop-off. Volume agreements available for title companies and escrow offices.</p>
+        </aside>
+      </div>
+
+      <!-- APOSTILLE -->
+      <div class="panel" role="tabpanel" id="p-apostille" aria-labelledby="tab-apostille" tabindex="0" hidden>
+        <div>
+          <h3>Apostille &amp; Authentication</h3>
+          <p class="sub">For documents used outside the U.S.</p>
+          <p>An apostille is a certificate that a government office attaches to your document so a foreign country will accept it as genuine. Without it, a U.S. birth certificate or diploma has no standing abroad. The rules change depending on who issued the document and which country it's going to — that's the part people get wrong, and it's the part we handle.</p>
+
+          <h4>Why people need one</h4>
+          <ul>
+            <li>Marriage abroad, or registering a foreign marriage</li>
+            <li>Dual citizenship and residency applications</li>
+            <li>Foreign adoption and custody matters</li>
+            <li>Teaching, working, or studying overseas</li>
+            <li>Opening a company or bank account in another country</li>
+            <li>Estate and inheritance claims held abroad</li>
+          </ul>
+
+          <h4>Where your document has to go</h4>
+          <ul>
+            <li><strong>State-issued</strong> (birth, marriage, death, diplomas, notarized documents) → the Secretary of State for the state that issued it</li>
+            <li><strong>Federal</strong> (FBI background checks, FDA and USDA certificates, federal court records) → the U.S. Department of State</li>
+            <li><strong>Countries outside the Hague Convention</strong> → authentication first, then legalization at that country's embassy or consulate</li>
+          </ul>
+
+          <h4>What we do</h4>
+          <ul>
+            <li>Review your document and confirm it's in a form the state will actually accept</li>
+            <li>Notarize or obtain certified copies where they're required first</li>
+            <li>Prepare and submit the request, pay the government filing fees, and track it</li>
+            <li>Arrange certified translation when the destination country requires it</li>
+            <li>Return by tracked courier — domestic or international</li>
+          </ul>
+        </div>
+        <aside class="rate-card">
+          <h4>Typical investment</h4>
+          <div class="rate"><span>First document</span><span data-biz="feeApost">$XXX</span></div>
+          <div class="rate"><span>Each additional document</span><span data-biz="feeApostAdd">$XX</span></div>
+          <div class="rate"><span>Government filing fees</span><span>At cost</span></div>
+          <div class="rate"><span>Expedited handling</span><span data-biz="feeApostRush">$XX</span></div>
+          <a href="#book" class="btn" data-service="Apostille">Start an apostille request</a>
+          <p class="fine">Turnaround depends on the issuing office, not on us — we'll give you a realistic window up front and tell you the moment anything moves.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---- PROCESS ---- -->
+  <section class="block" id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">How it works</p>
+        <h2>Four steps. No surprises on the invoice.</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="n">STEP 01</span>
+          <h3>Tell us what you have</h3>
+          <p>Send the request form or text a photo of the first page. We'll confirm which service you actually need before you commit to anything.</p>
+        </div>
+        <div class="step">
+          <span class="n">STEP 02</span>
+          <h3>Get a written quote</h3>
+          <p>Flat price, travel included, in writing. If a government filing fee applies, you'll see it listed separately at cost.</p>
+        </div>
+        <div class="step">
+          <span class="n">STEP 03</span>
+          <h3>We come to you</h3>
+          <p>At the time and place you pick. Bring unsigned documents and photo ID; we handle the seal, the journal, and the certificate wording.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---- CREDENTIALS ---- -->
+  <section class="block" id="trust">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Credentials</p>
+        <h2>The four things you should verify before letting anyone near your documents.</h2>
+      </div>
+      <div class="creds">
+        <div class="cred"><strong>Commissioned</strong><p>Active notary public commission in the State of <span data-biz="state">[State]</span>. Commission number and expiration available on request.</p></div>
+        <div class="cred"><strong>Bonded</strong><p>Surety bond in place as required by <span data-biz="state">[State]</span> law, protecting the public against notarial error.</p></div>
+        <div class="cred"><strong>Insured</strong><p>Professional errors &amp; omissions coverage carried above the statutory minimum.</p></div>
+        <div class="cred"><strong>Screened</strong><p>Annual background screening and certified loan signing agent training through the National Notary Association.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---- BOOKING ---- -->
+  <section class="block" id="book">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Book</p>
+        <h2>Request an appointment.</h2>
+        <p class="lede">Send this and you'll hear back with a confirmed time and a flat quote. Nothing is charged until you approve it.</p>
+      </div>
+      <div class="book-grid">
+        <!-- Calendly scheduler appears here once a link is set in BIZ -->
+        <div id="calendlyBox" hidden>
+          <div id="calendlyWidget" class="calendly-inline-widget" style="min-width:300px;height:760px;border:1px solid var(--rule);border-radius:3px;background:var(--card);box-shadow:var(--shadow)"></div>
+          <p class="fine" style="margin-top:.8rem">Booking runs through Calendly — you'll get an email confirmation and a calendar invite the moment you pick a time.</p>
+        </div>
+
+        <form class="book" id="bookForm" novalidate>
+          <div class="field">
+            <label for="f-service">Which service</label>
+            <select id="f-service" name="service">
+              <option>Mobile Notary</option>
+              <option>Loan Signing</option>
+              <option>Apostille</option>
+              <option>Not sure — please advise</option>
+            </select>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name">
+              <div class="err" id="e-name">Please add your name.</div>
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+              <div class="err" id="e-phone">Please add a phone number.</div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email">
+            <div class="err" id="e-email">Please add a valid email address.</div>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="f-date">Preferred date</label>
+              <input id="f-date" name="date" type="date">
+            </div>
+            <div class="field">
+              <label for="f-time">Preferred time</label>
+              <select id="f-time" name="time">
+                <option>Morning (8am–12pm)</option>
+                <option>Afternoon (12pm–5pm)</option>
+                <option>Evening (5pm–9pm)</option>
+                <option>As soon as possible</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-place">Where should we meet</label>
+            <input id="f-place" name="place" type="text" placeholder="Address, hospital name, or office">
+          </div>
+          <div class="field">
+            <label for="f-docs">What are we notarizing</label>
+            <textarea id="f-docs" name="docs" placeholder="Document type, how many signatures, how many signers, and anything we should know ahead of time."></textarea>
+          </div>
+          <button type="submit" class="btn">Send request</button>
+          <p class="fine" style="margin-top:1rem">We reply to every request. If you need something today, call or text — that's faster.</p>
+
+          <div class="stamped" id="stamped" role="status" aria-live="polite">
+            <div id="stampSeal"></div>
+            <h3>Request received</h3>
+            <p>You'll get a confirmed time and a flat quote shortly. If it's urgent, call or text <span data-biz="phone">[Phone]</span>.</p>
+          </div>
+        </form>
+
+        <div>
+          <h3>Or just reach out directly</h3>
+          <ul class="contact-list">
+            <li><span class="k">Call or text</span><span class="v"><a href="#" data-biz-href="tel"><span data-biz="phone">[Phone]</span></a></span></li>
+            <li><span class="k">Email</span><span class="v"><a href="#" data-biz-href="mailto"><span data-biz="email">[Email]</span></a></span></li>
+            <li><span class="k">Service area</span><span class="v" data-biz="area">[Your service area]</span></li>
+            <li><span class="k">Hours</span><span class="v">By appointment, seven days — including evenings, weekends, and holidays</span></li>
+            <li><span class="k">Apostille</span><span class="v">Handled by mail nationwide</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PAGE: ABOUT ============ -->
+<div class="page" id="page-about" hidden>
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">About</p>
+        <h2>Somebody has to be the calm one in the room.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="portrait">
+          <div class="ph">REPLACE WITH<br>YOUR PHOTO<br><br>4:5 portrait<br>1200 × 1500px</div>
+        </div>
+        <div>
+          <p class="lede" style="margin-bottom:1.6rem">Most people don't call a notary on a good day.</p>
+          <p>They call because a parent is in the hospital and the power of attorney has to be signed tonight. Because a closing moved up. Because a consulate rejected a birth certificate and nobody explained why. The document is rarely the hard part — the timing is.</p>
+          <p><span data-biz="name">Make It Last Signature &amp; Notary</span> was built around that. <span data-biz="owner">[Your name]</span> is a commissioned notary public in the State of <span data-biz="state">[State]</span>, a certified loan signing agent, and an apostille facilitator serving <span data-biz="area">[your service area]</span>. Every appointment is handled personally — you'll deal with the same person from the first text to the sealed document in your hand.</p>
+
+          <p class="pullquote">A notarization is a small act with a long tail. Done right, nobody ever thinks about it again.</p>
+
+          <p>[Write two or three sentences here about how you got into this work — a prior career in real estate, finance, healthcare, or paralegal work all build real credibility. Then say what you're known for: speed, hospital signings, tricky apostilles, patience with older clients.]</p>
+
+          <h3 style="margin:2rem 0 .8rem">What working together looks like</h3>
+          <p>You get a flat quote before anything happens. You get a real arrival window, not a four-hour one. If your document isn't in a form the state will accept, you'll hear that from us early — while it can still be fixed — rather than from a rejection letter six weeks out.</p>
+
+          <div class="hero-actions">
+            <a href="#/" class="btn" data-goto="book">Book an appointment</a>
+            <a href="#/faq" class="btn ghost">Read the FAQ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PAGE: FAQ ============ -->
+<div class="page" id="page-faq" hidden>
+  <section class="block">
+    <div class="narrow">
+      <div class="sec-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Questions we get every week.</h2>
+      </div>
+
+      <div class="faq-group">
+        <h3>General</h3>
+        <details class="qa"><summary>What does a notary actually do?</summary><div class="a"><p>A notary public is a state-commissioned official who confirms your identity, confirms you're signing willingly, and records the act in a journal. The seal doesn't mean the document is legally correct — it means the signature on it is genuine. That distinction matters, and it's why we can't tell you whether your document says the right thing.</p></div></details>
+        <details class="qa"><summary>What ID do I need?</summary><div class="a"><p>A current, unexpired government-issued photo ID — driver's license, state ID, passport, permanent resident card, or military ID. The name on the ID has to match the name on the document. If it doesn't, call us before the appointment so we can figure out the fix.</p></div></details>
+        <details class="qa"><summary>Should I sign before you arrive?</summary><div class="a"><p>No. The whole point is that the notary witnesses the signature. If a document is already signed, we usually can't notarize it — you'd need to sign a fresh copy. Leave every signature line blank.</p></div></details>
+        <details class="qa"><summary>Can you tell me which document I need, or fill it out for me?</summary><div class="a"><p>No, and be cautious of anyone who says otherwise. A notary who isn't an attorney can't select documents, explain legal effect, or advise you on how to complete them. We can explain what each notarial act does and point you toward the right resource.</p></div></details>
+        <details class="qa"><summary>Do you bring witnesses?</summary><div class="a"><p>Some documents — wills and certain deeds especially — require witnesses in addition to the notary, and the notary usually can't serve as one. Tell us in advance and we'll either arrange witnesses or tell you how many to have on hand.</p></div></details>
+      </div>
+
+      <div class="faq-group">
+        <h3>Appointments &amp; pricing</h3>
+        <details class="qa"><summary>How fast can you get to me?</summary><div class="a"><p>Same-day is often possible, and we take evening, weekend, and holiday appointments. For anything time-sensitive, text rather than email.</p></div></details>
+        <details class="qa"><summary>How is the price calculated?</summary><div class="a"><p>Two parts. The notarial fee per signature is capped by <span data-biz="state">[State]</span> law. Everything else — travel, wait time, after-hours, printing — is a separate service fee, quoted in writing before we come out. Loan signings and apostilles are flat-rate instead.</p></div></details>
+        <details class="qa"><summary>How do I pay?</summary><div class="a"><p>[List your accepted methods — card, Zelle, Venmo, ACH, or invoice for title company accounts.] Payment is due at the appointment unless you're on a business account.</p></div></details>
+        <details class="qa"><summary>What if I need to cancel?</summary><div class="a"><p>No charge if you cancel before we're en route. Once we've traveled or printed a loan package, a trip fee applies — it'll be on your written quote so there are no surprises.</p></div></details>
+        <details class="qa"><summary>Can you come to a hospital or nursing home?</summary><div class="a"><p>Yes, and we do it often. The signer has to be alert, able to communicate, and able to understand what they're signing — we'll confirm that gently at the appointment. Bring the signer's photo ID; if it's expired or missing, call us first, because there may be another path.</p></div></details>
+      </div>
+
+      <div class="faq-group">
+        <h3>Loan signing</h3>
+        <details class="qa"><summary>Do you work directly with title companies?</summary><div class="a"><p>Yes. We accept direct assignments and platform assignments, carry E&amp;O coverage, and complete annual background screening. Ask about volume pricing.</p></div></details>
+        <details class="qa"><summary>Do you print the documents?</summary><div class="a"><p>Yes — both borrower and lender copies, on the right paper sizes, included in the flat fee. Scan-backs the same day when the package requires them.</p></div></details>
+        <details class="qa"><summary>Can you explain the loan terms to me?</summary><div class="a"><p>We can tell you what each document is and where to sign. Questions about your rate, payment, or closing costs go to your loan officer or escrow officer — we'll get them on the phone during the signing if you need.</p></div></details>
+      </div>
+
+      <div class="faq-group">
+        <h3>Apostille</h3>
+        <details class="qa"><summary>What's the difference between an apostille and authentication?</summary><div class="a"><p>Both certify that a document is genuine. An apostille is the simplified version used between countries that joined the Hague Convention. If your destination country isn't a member, the document instead goes through authentication and then legalization at that country's embassy or consulate — more steps, longer timeline.</p></div></details>
+        <details class="qa"><summary>How long does it take?</summary><div class="a"><p>It depends entirely on the issuing office and time of year, and can range from a few days to several weeks. We give you a realistic window at the start and tell you the moment anything moves.</p></div></details>
+        <details class="qa"><summary>Can you apostille a photocopy?</summary><div class="a"><p>Usually not. Most offices require the original or a certified copy issued by the agency of record. If you only have a photocopy, we'll help you order a certified copy first.</p></div></details>
+        <details class="qa"><summary>Do I need a translation?</summary><div class="a"><p>Often, and the requirements vary by country — some want the translation apostilled too. Tell us the destination country and we'll confirm before anything gets submitted.</p></div></details>
+        <details class="qa"><summary>Can you handle documents from other states?</summary><div class="a"><p>Yes. Apostilles are handled by mail nationwide, and federal documents go through the U.S. Department of State. You don't need to be local for this service.</p></div></details>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#/" class="btn" data-goto="book">Book an appointment</a>
+        <a href="#/" class="btn ghost">Back to services</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand" data-biz="name">Make It Last Signature &amp; Notary</div>
+        <p style="font-family:var(--display);font-style:italic;font-size:1.02rem;color:#DCC98F;margin:0 0 1rem" data-biz="tagline">For the signatures that matter most.</p>
+        <p style="font-size:.92rem;margin-bottom:.8rem">Mobile notary, certified loan signing, and apostille coordination for <span data-biz="area">[your service area]</span>.</p>
+        <p style="font-size:.92rem"><a href="#" data-biz-href="tel"><span data-biz="phone">[Phone]</span></a><br><a href="#" data-biz-href="mailto"><span data-biz="email">[Email]</span></a></p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#/" data-goto="services">Mobile notary</a></li>
+          <li><a href="#/" data-goto="services">Loan signing</a></li>
+          <li><a href="#/" data-goto="services">Apostille &amp; authentication</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#/about">About</a></li>
+          <li><a href="#/faq">FAQ</a></li>
+          <li><a href="#/" data-goto="book">Book an appointment</a></li>
+          <li><a href="#/">Privacy policy</a></li>
+          <li><a href="#/">Terms of service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <p><strong><span data-biz="name">Make It Last Signature &amp; Notary</span> is not a law firm and does not provide legal advice.</strong> We cannot select your documents, explain their legal effect, or advise you on how to complete them. For legal advice, consult a licensed attorney. All notarial acts are performed by a notary public commissioned in the State of <span data-biz="state">[State]</span> in accordance with applicable state law.</p>
+      <p style="margin-top:.8rem">© <span id="yr"></span> <span data-biz="legal">[Your LLC name]</span> d/b/a <span data-biz="name">Make It Last Signature &amp; Notary</span>. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   1. EDIT THIS BLOCK — everything else updates automatically
+   ============================================================ */
+const BIZ = {
+  name:   "Make It Last Signature & Notary",
+  tagline:"For the signatures that matter most.",
+  sealText:"MAKE IT LAST",   // short version inscribed on the seal
+  owner:  "[Your name]",
+  legal:  "[Your LLC name]",
+  phone:  "(000) 000-0000",
+  email:  "hello@yourdomain.com",
+  city:   "[Your city]",
+  state:  "[State]",
+  county: "[County]",
+  area:   "[Your city] and surrounding counties",
+
+  /* ---- BOOKING via Calendly (free) ----------------------------
+     1. Sign up at calendly.com and create an event type
+        (e.g. "Mobile Notary Appointment").
+     2. Copy your scheduling link, e.g.
+        https://calendly.com/ribbonandseal/mobile-notary
+     3. Paste it below. The moment a real calendly.com link is
+        here, the site replaces the request form with the live
+        scheduler automatically.
+     Optional: make one event type per service and fill in all
+     three — the rate-card buttons will then open the right one.
+  ---------------------------------------------------------------- */
+  calendly:          "PASTE-YOUR-CALENDLY-LINK-HERE",
+  calendlyLoan:      "",   // optional: separate link for loan signings
+  calendlyApostille: "",   // optional: separate link for apostille intake
+
+  /* ---- FORM STORAGE via Supabase (optional) -------------------
+     If these two values are filled in, every booking-form
+     submission is saved to your Supabase "booking_requests"
+     table (setup steps in the walkthrough). The anon key is
+     SAFE to put here — it's designed to be public, and the
+     table policy only allows inserts, never reads.
+  ---------------------------------------------------------------- */
+  supabaseUrl: "",   // e.g. https://abcdefgh.supabase.co
+  supabaseAnon: "",  // the long "anon public" key
+
+  // Mobile notary
+  feeAct:      "$XX",
+  feeTravel:   "$XX",
+  feeRush:     "$XX",
+  feeSigner:   "$XX",
+  // Loan signing
+  feeRefi:     "$XXX",
+  feePurchase: "$XXX",
+  feeNoSign:   "$XX",
+  // Apostille
+  feeApost:     "$XXX",
+  feeApostAdd:  "$XX",
+  feeApostRush: "$XX",
+};
+
+/* ---- fill the page from BIZ ---- */
+document.querySelectorAll("[data-biz]").forEach(el=>{
+  const k = el.dataset.biz;
+  if (BIZ[k]) el.textContent = BIZ[k];
+});
+document.querySelectorAll("[data-biz-href]").forEach(el=>{
+  el.href = el.dataset.bizHref === "tel"
+    ? "tel:" + BIZ.phone.replace(/[^\d+]/g,"")
+    : "mailto:" + BIZ.email;
+});
+document.title = BIZ.name + " — Mobile Notary, Loan Signing & Apostille";
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+/* ============================================================
+   2. The seal (drawn in SVG so it scales and costs nothing)
+   ============================================================ */
+function sealSVG(size){
+  const top = ("NOTARY PUBLIC • " + BIZ.state + " •").toUpperCase();
+  const bot = (BIZ.sealText || BIZ.name).toUpperCase();
+  return `
+  <svg viewBox="0 0 200 200" width="${size}" height="${size}" role="img" aria-label="${BIZ.name} notary seal">
+    <defs>
+      <path id="arcTop-${size}" d="M100,100 m-74,0 a74,74 0 1,1 148,0" fill="none"/>
+      <path id="arcBot-${size}" d="M100,100 m-62,0 a62,62 0 1,0 124,0" fill="none"/>
+    </defs>
+    <circle cx="100" cy="100" r="92" fill="none" stroke="#6E1B26" stroke-width="1.2"/>
+    <circle cx="100" cy="100" r="86" fill="none" stroke="#6E1B26" stroke-width="3"/>
+    <circle cx="100" cy="100" r="52" fill="none" stroke="#6E1B26" stroke-width="1.2"/>
+    <g stroke="#A8843C" stroke-width=".8" fill="none" opacity=".85">
+      ${Array.from({length:44},(_,i)=>{
+        const a=(i/44)*Math.PI*2;
+        return `<line x1="${100+Math.cos(a)*54}" y1="${100+Math.sin(a)*54}" x2="${100+Math.cos(a)*60}" y2="${100+Math.sin(a)*60}"/>`;
+      }).join("")}
+    </g>
+    <text font-family="IBM Plex Mono, monospace" font-size="11.5" letter-spacing="2.6" fill="#6E1B26">
+      <textPath href="#arcTop-${size}" startOffset="50%" text-anchor="middle">${top}</textPath>
+    </text>
+    <text font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="2.2" fill="#6E1B26">
+      <textPath href="#arcBot-${size}" startOffset="50%" text-anchor="middle">${bot}</textPath>
+    </text>
+    <text x="100" y="94" text-anchor="middle" font-family="Bodoni Moda, Georgia, serif" font-size="26" fill="#14201C">SEAL</text>
+    <text x="100" y="114" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" letter-spacing="2" fill="#55655C">COMMISSIONED</text>
+    <path d="M62 122 H138" stroke="#A8843C" stroke-width="1"/>
+  </svg>`;
+}
+document.getElementById("heroSeal").innerHTML  = sealSVG(320);
+document.getElementById("stampSeal").innerHTML = sealSVG(150);
+document.getElementById("brandMark").innerHTML = sealSVG(34);
+
+/* ============================================================
+   3. Service tabs
+   ============================================================ */
+const tabs = [...document.querySelectorAll(".tab")];
+function selectTab(btn){
+  tabs.forEach(t=>{
+    const on = t === btn;
+    t.setAttribute("aria-selected", on);
+    document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+  });
+}
+tabs.forEach((t,i)=>{
+  t.addEventListener("click", ()=>selectTab(t));
+  t.addEventListener("keydown", e=>{
+    if(e.key!=="ArrowRight" && e.key!=="ArrowLeft") return;
+    e.preventDefault();
+    const next = tabs[(i + (e.key==="ArrowRight"?1:tabs.length-1)) % tabs.length];
+    next.focus(); selectTab(next);
+  });
+});
+
+/* ============================================================
+   3b. Calendly — activates itself when a real link is pasted
+       into BIZ.calendly above. Until then, the request form
+       shows instead, so the site works either way.
+   ============================================================ */
+const calendlyOn = /^https:\/\/calendly\.com\//.test(BIZ.calendly);
+const serviceLinks = {
+  "Mobile Notary": BIZ.calendly,
+  "Loan Signing":  BIZ.calendlyLoan || BIZ.calendly,
+  "Apostille":     BIZ.calendlyApostille || BIZ.calendly,
+};
+
+function showCalendly(url){
+  document.getElementById("calendlyWidget").dataset.url =
+    url + (url.includes("?") ? "&" : "?") + "hide_gdpr_banner=1";
+  // (re)load the widget
+  document.getElementById("calendlyWidget").innerHTML = "";
+  if (window.Calendly) {
+    window.Calendly.initInlineWidget({url: document.getElementById("calendlyWidget").dataset.url, parentElement: document.getElementById("calendlyWidget")});
+  }
+}
+
+if (calendlyOn) {
+  document.getElementById("bookForm").hidden = true;
+  document.getElementById("calendlyBox").hidden = false;
+  const s = document.createElement("script");
+  s.src = "https://assets.calendly.com/assets/external/widget.js";
+  s.async = true;
+  s.onload = ()=>showCalendly(BIZ.calendly);
+  document.head.appendChild(s);
+}
+
+/* Rate-card buttons: open the right Calendly event (or preselect
+   the service in the fallback form) */
+document.querySelectorAll("[data-service]").forEach(a=>{
+  a.addEventListener("click", ()=>{
+    if (calendlyOn) { showCalendly(serviceLinks[a.dataset.service] || BIZ.calendly); return; }
+    document.getElementById("f-service").value = a.dataset.service;
+  });
+});
+
+/* ============================================================
+   4. Page routing (#/ , #/about , #/faq)
+   ============================================================ */
+const pages = {home:"page-home", about:"page-about", faq:"page-faq"};
+function route(){
+  const h = location.hash;
+  let key = "home";
+  if (h.startsWith("#/about")) key = "about";
+  else if (h.startsWith("#/faq")) key = "faq";
+
+  Object.entries(pages).forEach(([k,id])=>{
+    document.getElementById(id).hidden = (k !== key);
+  });
+  document.querySelectorAll("nav.main a").forEach(a=>{
+    a.classList.toggle("on", a.getAttribute("href") === "#/" + (key==="home"?"":key));
+  });
+  document.getElementById("nav").classList.remove("open");
+
+  // in-page anchors only work on the home page
+  if (key === "home" && h && !h.startsWith("#/")) {
+    const t = document.querySelector(h);
+    if (t) { t.scrollIntoView(); return; }
+  }
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange", route);
+route();
+
+/* links that go home *and* scroll somewhere */
+document.querySelectorAll("[data-goto]").forEach(a=>{
+  a.addEventListener("click", e=>{
+    e.preventDefault();
+    location.hash = "#" + a.dataset.goto;
+    setTimeout(()=>document.querySelector("#"+a.dataset.goto)?.scrollIntoView(),40);
+  });
+});
+
+/* mobile menu */
+const menuBtn = document.getElementById("menuBtn");
+menuBtn.addEventListener("click", ()=>{
+  const nav = document.getElementById("nav");
+  const open = nav.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", open);
+});
+document.querySelectorAll("nav.main a").forEach(a=>{
+  a.addEventListener("click", ()=>document.getElementById("nav").classList.remove("open"));
+});
+
+/* ============================================================
+   5. Booking form
+   ------------------------------------------------------------
+   This form is the FALLBACK. Once a Calendly link is pasted
+   into BIZ.calendly at the top of this script, the live
+   scheduler replaces it automatically and this form is hidden.
+   If she ever wants the form emailed instead of Calendly:
+   Formspree (formspree.io, free tier) — set the form's action
+   to the Formspree URL and method="POST".
+   ============================================================ */
+const form = document.getElementById("bookForm");
+form.addEventListener("submit", e=>{
+  e.preventDefault();
+  const name = document.getElementById("f-name");
+  const phone = document.getElementById("f-phone");
+  const email = document.getElementById("f-email");
+  let ok = true;
+
+  const check = (input, errId, valid) => {
+    document.getElementById(errId).classList.toggle("show", !valid);
+    if (!valid) ok = false;
+  };
+  check(name,  "e-name",  name.value.trim().length > 1);
+  check(phone, "e-phone", phone.value.replace(/\D/g,"").length >= 10);
+  check(email, "e-email", /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email.value.trim()));
+
+  if (!ok) { form.querySelector(".err.show")?.previousElementSibling?.focus(); return; }
+
+  /* Save to Supabase if configured (fire-and-forget with fallback) */
+  if (BIZ.supabaseUrl && BIZ.supabaseAnon) {
+    const payload = {
+      service: document.getElementById("f-service").value,
+      name:    name.value.trim(),
+      phone:   phone.value.trim(),
+      email:   email.value.trim(),
+      pref_date:  document.getElementById("f-date").value || null,
+      pref_time:  document.getElementById("f-time").value,
+      location:   document.getElementById("f-place").value.trim(),
+      details:    document.getElementById("f-docs").value.trim(),
+    };
+    fetch(BIZ.supabaseUrl + "/rest/v1/booking_requests", {
+      method: "POST",
+      headers: {
+        "apikey": BIZ.supabaseAnon,
+        "Authorization": "Bearer " + BIZ.supabaseAnon,
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal"
+      },
+      body: JSON.stringify(payload)
+    }).catch(err => console.error("Supabase save failed:", err));
+  }
+
+  document.getElementById("stamped").classList.add("show");
+});
+</script>
+</body>
+</html>
